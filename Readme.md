@@ -23,28 +23,27 @@ SSL証明書の期限が30,15,7,3,1前に警告メールを送ります。
 　　SESがテストモードの場合は、許可されたメールアドレスをセットしてください。
 1. ロールを作成します。
   セットするロールはS3の参照権限とSESの送信権限があればOKです。
-  ```
-  {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::<設定を置いたS3バケット名>/*"
-        },
-        {
-            "Sid": "VisualEditor1",
-            "Effect": "Allow",
-            "Action": "ses:SendEmail",
-            "Resource": "*"
-        }
-    ]
-  }
-  ```
+    ```
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "VisualEditor0",
+                "Effect": "Allow",
+                "Action": "s3:GetObject",
+                "Resource": "arn:aws:s3:::<設定を置いたS3バケット名>/*"
+            },
+            {
+                "Sid": "VisualEditor1",
+                "Effect": "Allow",
+                "Action": "ses:SendEmail",
+                "Resource": "*"
+            }
+        ]
+    }
+    ```
 1. SESが利用可能でない場合は、設定します。バージニア以外に作った場合はソース中のリージョン指定を変更する必要があります。
-1. lamnbda
-１から作成を選択して、Rubyを選びます。ロールの選択は既存のロールを選択するようにし、作成したロールを指定します。
+1. ラムダは、１から作成を選択して、Rubyを選びます。ロールの選択は既存のロールを選択するようにし、作成したロールを指定します。
 ![](lambda03.jpg)
 本ソースをチェックアウト後、
 	```
