@@ -1,0 +1,12 @@
+---
+mail_from: info@example.com
+
+hosts:
+  - url: www.yahoo.co.jp
+    mails:
+      - alert@example.com
+      - chk_ssl@example.com
+  - url: www.google.co.jp
+    mails:
+      - dev@example.com
+      
